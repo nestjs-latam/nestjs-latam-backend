@@ -1,5 +1,5 @@
 import { ServerConfig } from '@config/types';
-import { INestApplication } from '@nestjs/common';
+import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
@@ -19,5 +19,6 @@ NestFactory.create(AppModule).then((app: INestApplication) => {
 
   app.connectMicroservice(microserviceOptions);
   app.startAllMicroservices();
+  app.useGlobalPipes(new ValidationPipe());
   app.listen(port);
 });

@@ -33,6 +33,17 @@ export class UsersRepository {
     return this.users.findOne(filter, projection, options).exec();
   }
 
+  public findUserWithProfile(
+    filter: FilterQuery<UserModel>,
+    projection?: any,
+    options?: QueryOptions
+  ) {
+    return this.users
+      .findOne(filter, projection, options)
+      .populate('role')
+      .exec();
+  }
+
   public create(params: AnyKeys<UserModel>): Promise<UserModel> {
     return this.users.create(params);
   }

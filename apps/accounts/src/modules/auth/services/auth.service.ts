@@ -28,13 +28,13 @@ export class AuthService {
         roleId: role.uuid
       });
       return this.usersService.findOne({ uuid: account.uuid });
-    } catch (error) {
-      if (error.code === 11000) {
-        error.message = 'auth.username-already-taken';
+    } catch (exception) {
+      if (exception.code === 11000) {
+        exception.error.message = 'accounts.user.username-already-taken';
       }
       throw new RpcException({
-        message: error.message,
-        status: 409
+        message: exception?.error?.message,
+        status: exception?.error?.status || 500
       });
     }
   }

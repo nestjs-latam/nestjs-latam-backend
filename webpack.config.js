@@ -16,27 +16,27 @@ module.exports = function (options) {
   const env = path.join(app, '.env');
   const sampleEnv = path.join(app, '.env.example');
   dotenv.config({
-    path: env,
+    path: env
   });
   return {
     plugins: [
       new CleanTerminalPlugin({
         onlyInWatchMode: false,
-        beforeCompile: true,
+        beforeCompile: true
       }),
       new DotenvPlugin({
         path: env,
         sample: sampleEnv,
-        allowEmptyValues: true,
+        allowEmptyValues: true
       }),
       new NodemonPlugin({
-        delay: 500,
+        delay: 1000,
         events: {
           start: `kill-port ${process.env.PORT}`,
           restart: `kill-port ${process.env.PORT}`,
-          crash: `kill-port ${process.env.PORT}`,
-        },
-      }),
-    ],
+          crash: `kill-port ${process.env.PORT}`
+        }
+      })
+    ]
   };
 };

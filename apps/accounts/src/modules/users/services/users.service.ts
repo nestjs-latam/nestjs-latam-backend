@@ -24,6 +24,10 @@ export class UsersService {
     return this.findOne(filter);
   }
 
+  public findUserWithProfile(filter: FindUserDto): Promise<UserModel> {
+    return this.users.findUserWithProfile(filter);
+  }
+
   public findUsers(filter: FindUserDto): Promise<PaginateResult<UserModel>> {
     return this.find(filter);
   }
@@ -60,7 +64,16 @@ export class UsersService {
     });
   }
 
-  public register(params: AnyKeys<UserModel>): Promise<UserModel> {
+  public async register(params: AnyKeys<UserModel>): Promise<UserModel> {
+    const userExists = await this.findOne({ username: params.username });
+
+    if (userExists) {
+      throw new RpcException({
+        message: 'accounts.users.username-already-taken',
+        status: 422
+      });
+    }
+
     return this.create({
       ...params,
       password: this.passwordService.generate(params.password, 10)

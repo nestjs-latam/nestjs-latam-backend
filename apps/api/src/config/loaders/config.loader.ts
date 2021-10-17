@@ -10,5 +10,9 @@ export const configLoader = (): ConfigType => ({
       host: process.env.ACCOUNTS_HOST,
       port: parseInt(process.env.ACCOUNTS_PORT, 10)
     }
+  },
+  jwt: {
+    expiresIn: process.env.JWT_EXPIRES,
+    secret: process.env.JWT_SECRET
   }
 });

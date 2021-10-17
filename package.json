@@ -28,6 +28,7 @@
     "@nestjs/jwt": "^8.0.0",
     "@nestjs/microservices": "^8.0.8",
     "@nestjs/mongoose": "^9.0.0",
+    "@nestjs/passport": "^8.0.1",
     "@nestjs/platform-express": "^8.0.5",
     "@types/passport-jwt": "^3.0.6",
     "bcrypt": "^5.0.1",
@@ -40,6 +41,7 @@
     "mongoose": "^6.0.11",
     "mongoose-paginate": "^5.0.3",
     "mongoose-unique-validator": "^3.0.0",
+    "passport": "^0.5.0",
     "passport-jwt": "^4.0.0",
     "ramda": "^0.27.1",
     "reflect-metadata": "^0.1.13",
@@ -105,7 +107,9 @@
       "@core/dtos/(.*)": "<rootDir>/libs/dtos/src/$1",
       "@core/dtos": "<rootDir>/libs/dtos/src",
       "@core/password/(.*)": "<rootDir>/libs/password/src/$1",
-      "@core/password": "<rootDir>/libs/password/src"
+      "@core/password": "<rootDir>/libs/password/src",
+      "@core/exceptions/(.*)": "<rootDir>/libs/exceptions/src/$1",
+      "@core/exceptions": "<rootDir>/libs/exceptions/src"
     }
   }
 }

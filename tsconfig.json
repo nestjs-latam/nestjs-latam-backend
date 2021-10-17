@@ -35,6 +35,12 @@
       ],
       "@core/password/*": [
         "libs/password/src/*"
+      ],
+      "@core/exceptions": [
+        "libs/exceptions/src"
+      ],
+      "@core/exceptions/*": [
+        "libs/exceptions/src/*"
       ]
     }
   }

@@ -22,6 +22,10 @@ export class UsersController {
   public findUser(@Body() filter: FindUserDto): Promise<UserModel> {
     return this.users.findUser(filter);
   }
+  @MessagePattern({ cmd: 'find_user_with_profile' })
+  public findUserWithProfile(@Body() filter: FindUserDto): Promise<UserModel> {
+    return this.users.findUserWithProfile(filter);
+  }
 
   @MessagePattern({ cmd: 'find_users' })
   public findUsers(
