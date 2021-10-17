@@ -17,6 +17,18 @@
       ],
       "@config/types/*": [
         "libs/types/src/*"
+      ],
+      "@plugins/mongoose-hide-object-id": [
+        "libs/mongoose-hide-object-id/src"
+      ],
+      "@plugins/mongoose-hide-object-id/*": [
+        "libs/mongoose-hide-object-id/src/*"
+      ],
+      "@core/dtos": [
+        "libs/dtos/src"
+      ],
+      "@core/dtos/*": [
+        "libs/dtos/src/*"
       ]
     }
   }

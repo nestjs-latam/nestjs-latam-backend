@@ -43,6 +43,24 @@
       "compilerOptions": {
         "tsConfigPath": "libs/types/tsconfig.lib.json"
       }
+    },
+    "mongoose-hide-object-id": {
+      "type": "library",
+      "root": "libs/mongoose-hide-object-id",
+      "entryFile": "index",
+      "sourceRoot": "libs/mongoose-hide-object-id/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/mongoose-hide-object-id/tsconfig.lib.json"
+      }
+    },
+    "dtos": {
+      "type": "library",
+      "root": "libs/dtos",
+      "entryFile": "index",
+      "sourceRoot": "libs/dtos/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/dtos/tsconfig.lib.json"
+      }
     }
   }
 }
