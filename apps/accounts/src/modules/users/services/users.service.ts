@@ -1,6 +1,8 @@
 import { DeleteUserDto } from '@core/dtos/accounts/users/delete-user.dto';
 import { FindUserDto } from '@core/dtos/accounts/users/find-user.dto';
 import { Injectable } from '@nestjs/common';
+import { RpcException } from '@nestjs/microservices';
+import { PasswordService } from 'libs/password/src';
 import {
   FilterQuery,
   QueryOptions,
@@ -13,7 +15,10 @@ import { UsersRepository } from '../repositories/users.repository';
 
 @Injectable()
 export class UsersService {
-  constructor(private readonly users: UsersRepository) {}
+  constructor(
+    private readonly users: UsersRepository,
+    private readonly passwordService: PasswordService
+  ) {}
 
   public findUser(filter: FindUserDto): Promise<UserModel> {
     return this.findOne(filter);
@@ -33,6 +38,30 @@ export class UsersService {
     options?: QueryOptions
   ): Promise<UserModel> {
     return this.users.findOne(filter, projection, options);
+  }
+
+  public async login(username: string, password: string): Promise<UserModel> {
+    const user = await this.findOne({ username, password });
+
+    if (user && this.passwordService.match(password, user?.password)) {
+      return user.populate({
+        path: 'role',
+        model: 'RoleModel'
+      });
+    }
+
+    throw new RpcException({
+      error: 'auth.invalid_credentials',
+      message: 'Invalid credentials, try again',
+      status: 401
+    });
+  }
+
+  public register(params: AnyKeys<UserModel>): Promise<UserModel> {
+    return this.create({
+      ...params,
+      password: this.passwordService.generate(params.password, 10)
+    });
   }
 
   public find(

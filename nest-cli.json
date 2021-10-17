@@ -61,6 +61,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/dtos/tsconfig.lib.json"
       }
+    },
+    "password": {
+      "type": "library",
+      "root": "libs/password",
+      "entryFile": "index",
+      "sourceRoot": "libs/password/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/password/tsconfig.lib.json"
+      }
     }
   }
 }

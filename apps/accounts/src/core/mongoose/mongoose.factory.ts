@@ -23,8 +23,6 @@ export class MongooseFactory implements MongooseOptionsFactory {
       path: [config.database]
     }).toString();
 
-    console.log({ config });
-
     return {
       uri,
       dbName: config.database,

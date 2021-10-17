@@ -29,6 +29,12 @@
       ],
       "@core/dtos/*": [
         "libs/dtos/src/*"
+      ],
+      "@core/password": [
+        "libs/password/src"
+      ],
+      "@core/password/*": [
+        "libs/password/src/*"
       ]
     }
   }

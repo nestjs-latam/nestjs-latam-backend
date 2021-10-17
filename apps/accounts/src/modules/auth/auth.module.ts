@@ -1,4 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 
-@Injectable()
+import { UsersModule } from '../users/users.module';
+
+@Module({
+  imports: [UsersModule]
+})
 export class AuthModule {}

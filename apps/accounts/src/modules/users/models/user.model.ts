@@ -28,4 +28,11 @@ export class UserModel extends Document {
 
 const UserSchema = SchemaFactory.createForClass(UserModel);
 
+UserSchema.virtual('role', {
+  ref: 'RoleModel',
+  localField: 'roleId',
+  foreignField: 'uuid',
+  justOne: true
+});
+
 export { UserSchema };
