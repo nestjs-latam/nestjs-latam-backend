@@ -1,0 +1,16 @@
+{
+  "autorun": false,
+  "terminals": [
+    {
+      "name": "api",
+      "description": "API Gateway",
+      "focus": true,
+      "command": "yarn start:dev api"
+    },
+    {
+      "name": "accounts",
+      "description": "Accounts Microservice",
+      "command": "yarn start:dev accounts"
+    }
+  ]
+}

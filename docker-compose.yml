@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    env_file: apps/api/.env
+    ports:
+      - 3000:3000
+    networks:
+      - lan0
+  accounts:
+    container_name: accounts
+    build:
+      context: .
+      dockerfile: apps/accounts/Dockerfile
+    env_file: apps/accounts/.env
+    ports:
+      - 4001:4001
+    networks:
+      - lan0
+
+networks:
+  lan0:
+    driver: bridge
+    ipam:
+      driver: default
