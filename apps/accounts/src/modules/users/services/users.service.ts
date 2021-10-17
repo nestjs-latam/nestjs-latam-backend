@@ -41,13 +41,16 @@ export class UsersService {
   }
 
   public async login(username: string, password: string): Promise<UserModel> {
-    const user = await this.findOne({ username, password });
+    const user = await this.findOne(
+      { username },
+      {
+        password: 1,
+        username: 1
+      }
+    );
 
     if (user && this.passwordService.match(password, user?.password)) {
-      return user.populate({
-        path: 'role',
-        model: 'RoleModel'
-      });
+      return this.findOne({ username });
     }
 
     throw new RpcException({

@@ -4,10 +4,10 @@ import { FindUserDto } from '@core/dtos/accounts/users/find-user.dto';
 import { FindUsersDto } from '@core/dtos/accounts/users/find-users.dto';
 import { DeleteUserDto } from '@core/dtos/accounts/users/delete-user.dto';
 import { CreateUserDto } from '@core/dtos/accounts/users/create-user.dto';
+import { PaginateResult } from 'mongoose';
 
 import { UsersService } from '../services/users.service';
 import { UserModel } from '../models/user.model';
-import { PaginateResult } from 'mongoose';
 
 @Controller()
 export class UsersController {

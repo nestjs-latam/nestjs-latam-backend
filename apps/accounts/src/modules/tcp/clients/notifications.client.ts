@@ -10,6 +10,7 @@ export const notificationsClient: ClientsProviderAsyncOptions = {
   inject: [ConfigService],
   useFactory(configService: ConfigService) {
     const { host, port } = configService.get<ServerConfig>('notifications');
+    console.log(host, port);
     return {
       transport: Transport.TCP,
       options: { host, port }

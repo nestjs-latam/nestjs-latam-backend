@@ -6,11 +6,13 @@ import {
   QueryOptions,
   AnyKeys
 } from 'mongoose';
+
 import { RoleModel } from '../models/role.model';
+import { RolesRepository } from '../repositories/roles.repository';
 
 @Injectable()
 export class RolesService {
-  constructor(private readonly roles: RolesService) {}
+  constructor(private readonly roles: RolesRepository) {}
 
   public find(
     filter: FilterQuery<RoleModel>,

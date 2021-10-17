@@ -4,16 +4,22 @@ import { v4 as uuid } from 'uuid';
 
 @Schema({
   collection: 'users',
-  autoIndex: true
+  autoIndex: true,
+  timestamps: true
 })
 export class UserModel extends Document {
   @Prop({ type: String, index: true, default: uuid })
   public uuid: string;
 
-  @Prop({ type: String, index: true, required: true })
+  @Prop({
+    type: String,
+    index: true,
+    required: true,
+    unique: true
+  })
   public username: string;
 
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, required: true, select: false })
   public password: string;
 
   @Prop({ type: Boolean, default: false })

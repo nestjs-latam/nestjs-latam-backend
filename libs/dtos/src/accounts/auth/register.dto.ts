@@ -1,7 +1,17 @@
-import { IsString, IsBoolean, IsUUID, IsOptional } from 'class-validator';
+import {
+  IsString,
+  IsBoolean,
+  IsOptional,
+  Matches,
+  MaxLength,
+  MinLength
+} from 'class-validator';
 
 export class RegisterDto {
   @IsString()
+  @Matches(/[a-zA-Z0-9]{2,16}/)
+  @MaxLength(16)
+  @MinLength(2)
   public username: string;
 
   @IsString()
@@ -14,7 +24,4 @@ export class RegisterDto {
   @IsBoolean()
   @IsOptional()
   public hasVerifiedEmail?: boolean;
-
-  @IsUUID()
-  public roleId: string;
 }

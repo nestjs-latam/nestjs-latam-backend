@@ -25,16 +25,23 @@
     "@nestjs/config": "^1.0.2",
     "@nestjs/core": "^8.0.5",
     "@nestjs/event-emitter": "^1.0.0",
+    "@nestjs/jwt": "^8.0.0",
     "@nestjs/microservices": "^8.0.8",
     "@nestjs/mongoose": "^9.0.0",
     "@nestjs/platform-express": "^8.0.5",
+    "@types/passport-jwt": "^3.0.6",
+    "bcrypt": "^5.0.1",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "connection-string": "^4.3.4",
     "dotenv": "^10.0.0",
+    "http-status-codes": "^2.1.4",
     "joi": "^17.4.2",
     "mongoose": "^6.0.11",
     "mongoose-paginate": "^5.0.3",
+    "mongoose-unique-validator": "^3.0.0",
+    "passport-jwt": "^4.0.0",
+    "ramda": "^0.27.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.4.0",
     "uuid": "^8.3.2"
@@ -43,9 +50,11 @@
     "@nestjs/cli": "^7.6.0",
     "@nestjs/schematics": "^7.3.0",
     "@nestjs/testing": "^8.1.1",
+    "@types/bcrypt": "^5.0.0",
     "@types/express": "^4.17.11",
     "@types/jest": "^26.0.22",
     "@types/mongoose-paginate": "^5.0.10",
+    "@types/mongoose-unique-validator": "^1.0.5",
     "@types/node": "^14.14.36",
     "@types/supertest": "^2.0.10",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
@@ -94,7 +103,9 @@
       "@plugins/mongoose-hide-object-id/(.*)": "<rootDir>/libs/mongoose-hide-object-id/src/$1",
       "@plugins/mongoose-hide-object-id": "<rootDir>/libs/mongoose-hide-object-id/src",
       "@core/dtos/(.*)": "<rootDir>/libs/dtos/src/$1",
-      "@core/dtos": "<rootDir>/libs/dtos/src"
+      "@core/dtos": "<rootDir>/libs/dtos/src",
+      "@core/password/(.*)": "<rootDir>/libs/password/src/$1",
+      "@core/password": "<rootDir>/libs/password/src"
     }
   }
 }
